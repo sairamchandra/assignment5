@@ -1,0 +1,418 @@
+1.creating parent class and child class with access modifiers.
+------------------------------------------------------
+parent class
+===============================
+package Multi;
+
+public class Father {
+int money=100000;
+protected int wt=65;
+public int getWt() {
+	return wt;
+}
+public void setWt(int wt) {
+	this.wt = wt;
+}
+private String gf="samantha"; // restricted
+
+public String getGf() {
+	return gf;
+}
+public void setGf(String gf) {
+	this.gf = gf;
+}
+void isDrink() {
+	System.out.println("drinking is good habit");
+}
+	public static void main(String[] args) {
+
+	}
+
+}
+--------------------------------------------------------------
+child class
+=========================================
+package Multi;
+
+public class Son extends Father{
+String name;
+protected int ht=6;
+
+public int getHt() {
+	return ht;
+}
+public void setHt(int ht) {
+	this.ht = ht;
+}
+public void longDrive() {
+	System.out.println(name+"i am going long drive with gf");
+}
+	public static void main(String[] args) {
+Son s1=new Son();
+s1.money=20000;
+System.out.println(s1.money);
+s1.isDrink();
+s1.name="sai";
+s1.longDrive();
+int w1=s1.getWt();
+System.out.println("my weight is"+w1);
+String s11=s1.getGf();
+System.out.println("my gf is "+s11);
+
+	}
+
+}
+=================================================================
+===================================================================
+                        Inheritence
+
+
+===================================================================
+1.single level 
+2.multi level
+3.hirarichal 
+4.multiple level
+5.hybrid
+=================================================================
+1.single level
+
+parent class=>child class
+
+PARENT CALSS
+------------------
+class Employee{  
+ float salary=40000;  
+}  
+-------------------------
+CHILD CLASS
+---------------------
+class Programmer extends Employee{  
+ int bonus=10000;  
+ public static void main(String args[]){  
+   Programmer p=new Programmer();  
+   System.out.println("Programmer salary is:"+p.salary);  
+   System.out.println("Bonus of Programmer is:"+p.bonus);  
+}  
+}  
+=============================================
+2.MULTILEVEL 
+============================================
+parent class=>child class=> grand son
+---------------------------------------------
+parent class
+
+
+
+------------------
+class Employee{  
+ float salary=40000;  
+}  
+-------------------------
+CHILD CLASS
+---------------------
+class Programmer extends Employee{  
+ int bonus=10000;  
+ public static void main(String args[]){  
+   Programmer p=new Programmer();  
+   System.out.println("Programmer salary is:"+p.salary);  
+   System.out.println("Bonus of Programmer is:"+p.bonus);  
+}  
+}  
+
+-------------------------------
+grand son class
+-----------------------------------
+
+
+class Programmer2 extends Employee{  
+ int salary=20000;  
+ public static void main(String args[]){  
+   Programmer2 p2=new Programmer2();  
+   System.out.println("Programmer salary is:"+p2.salary);  
+   System.out.println("Bonus of Programmer is:"+p2.bonus);  
+}  
+}  
+
+==================================================
+example 2 for multi level
+
+package Multi;
+
+public class Father {
+int money=100000;
+protected int wt=65;
+public int getWt() {
+	return wt;
+}
+public void setWt(int wt) {
+	this.wt = wt;
+}
+private String gf="samantha"; // restricted
+
+public String getGf() {
+	return gf;
+}
+public void setGf(String gf) {
+	this.gf = gf;
+}
+void isDrink() {
+	System.out.println("drinking is good habit");
+}
+	public static void main(String[] args) {
+
+	}
+
+}
+=====================
+child classs
+=============
+package Multi;
+
+public class Son extends Father{
+String name;
+protected int ht=6;
+
+public int getHt() {
+	return ht;
+}
+public void setHt(int ht) {
+	this.ht = ht;
+}
+public void longDrive() {
+	System.out.println(name+"i am going long drive with gf");
+}
+	public static void main(String[] args) {
+Son s1=new Son();
+s1.money=20000;
+System.out.println(s1.money);
+s1.isDrink();
+s1.name="sai";
+s1.longDrive();
+int w1=s1.getWt();
+System.out.println("my weight is"+w1);
+String s11=s1.getGf();
+System.out.println("my gf is "+s11);
+
+	}
+
+}
+================================
+granson class
+===========================
+package Multi;
+
+public class GrandSon extends Son {
+int age;
+public void play() {
+	System.out.println("grandchild is playing game");
+}
+	public static void main(String[] args) {
+		GrandSon g=new GrandSon();
+		g.name="ram";
+		System.out.println(g.name);
+		g.isDrink();
+	int ht1=g.getHt();
+	System.out.println("my height is "+ ht1);
+	}
+
+}
+
+====================================================================================
+
+3.hirarical inheritence
+
+parent class
+==========================
+class Animal{  
+void eat(){System.out.println("eating...");}  
+}  
+
+child class
+===================
+class Dog extends Animal{  
+void bark(){System.out.println("barking...");}  
+}  
+child class
+=====================
+class Cat extends Animal{  
+void meow(){System.out.println("meowing...");}  
+}  
+===================
+testing program
+====================
+class TestInheritance3{  
+public static void main(String args[]){  
+Cat c=new Cat();  
+c.meow();  
+c.eat();  
+//c.bark();//C.T.Error  
+}}  
+
+=========================================================
+  4.multiple level
+===========================================================
+
+inter face1
+-----------------------------
+
+public interface Student {
+public void student_name(String sname);
+public void student_age(int age);
+
+}
+================
+inter face 2
+================
+
+public interface Trainer extends Student {
+public void head();
+public void trainer();
+}
+===================================================
+child classs
+===================================================
+
+public class Sai implements Student,Trainer {
+
+	private static int age;
+	private static String sname;
+
+	public static void main(String[] args) {
+Sai s=new Sai();
+s.student_age(age);
+s.student_name(sname);
+s.head();
+s.trainer();
+	}
+
+	@Override
+	public void student_name(String sname) {
+String sname1="sai";
+System.out.println("my name is :"+sname1);
+	}
+
+	@Override
+	public void student_age(int age) {
+int age1=22;
+System.out.println("my age is : "+ age1);
+	}
+
+	@Override
+	public void head() {
+		// TODO Auto-generated method stub
+		System.out.println("my hr is raja sir");
+		
+	}
+
+	@Override
+	public void trainer() {
+		// TODO Auto-generated method stub
+		System.out.println("my hr is bhavna");
+	}
+
+}
+=========================================================================================
+another example for multiple:
+=========================================================================================
+class A{  
+void msg(){System.out.println("Hello");}  
+}  
+
+
+class B{  
+void msg(){System.out.println("Welcome");}  
+}  
+
+
+
+class C extends A,B{
+   
+ public static void main(String args[]){  
+   C obj=new C();  
+   obj.msg();  
+}  
+}  
+=========================================================================================
+
+5.hybrid level
+=============================================================
+
+child class
+---------------------
+
+public class ClassA 
+{
+    public void dispA()
+    {
+        System.out.println("disp() method of ClassA");
+    }
+}
+
+
+
+
+
+
+
+parent interface1
+-------------------------
+
+public interface InterfaceB 
+{
+    public void show();
+}
+
+===================
+parent interface 2
+-----------------------------
+
+
+
+
+
+public interface InterfaceC 
+{
+    public void show();
+}
+
+
+============================================================
+grandchild it extends child classand implements interface 1 and interface2
+=============================================================================
+
+
+public class ClassD extends ClassA implements InterfaceB,InterfaceC
+{
+    public void show()
+    {
+        System.out.println("show() method implementation");
+    }
+    public void dispD()
+    {
+        System.out.println("disp() method of ClassD");
+    }
+    public static void main(String args[])
+    {
+        ClassD d = new ClassD();
+        d.dispD();
+        d.show();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
